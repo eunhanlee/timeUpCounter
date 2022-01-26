@@ -1,5 +1,6 @@
 from threading import Timer,Thread,Event
-
+import time
+import datetime
 
 class perpetualTimer():
 
@@ -14,6 +15,7 @@ class perpetualTimer():
       self.thread.start()
 
    def start(self):
+      self.t=1
       self.thread.start()
 
    def cancel(self):

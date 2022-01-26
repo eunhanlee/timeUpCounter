@@ -1,4 +1,5 @@
 import sys
+import datetime
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QDesktopWidget
 from PyQt5.QtWidgets import QGraphicsOpacityEffect
@@ -8,26 +9,22 @@ from PyQt5.QtCore import Qt
 from PyQt5.QtCore import QDateTime, Qt
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout
 from PyQt5.QtCore import QCoreApplication
-from threading import Timer,Thread,Event
+from threading import Timer, Thread, Event
 
 from perpetualTimer import perpetualTimer
 
 
 class MyApp(QWidget):
     global count
-    count=0
-
+    count = 0
 
     def __init__(self):
-
         super().__init__()
         self.initUI()
 
     def initUI(self):
         global t
         t = perpetualTimer(self.changeLabel)
-
-
 
         btn1 = QPushButton(self)
         btn1.setText("Start")
@@ -45,7 +42,7 @@ class MyApp(QWidget):
         btn4 = QPushButton(self)
         btn4.setText("Hold")
         btn4.clicked.connect(self.Hold)
-        btn4.setDisabled(True)
+        # btn4.setDisabled(True)
 
         btn5 = QPushButton(self)
         btn5.setText("exit")
@@ -88,14 +85,13 @@ class MyApp(QWidget):
         self.move(qr.topLeft())
 
     def Hold(self):
-        # self.setWindowFlag(Qt.FramelessWindowHint)
-        self.setWindowFlag(Qt.WindowStaysOnBottomHint)
+        self.setWindowFlag(Qt.FramelessWindowHint)
+        # self.setWindowFlag(Qt.WindowStaysOnBottomHint)
         self.show()
 
     def start(self):
         # self.changeLabel()
         t.start()
-
 
     def pause(self):
         t.pause()
@@ -104,19 +100,13 @@ class MyApp(QWidget):
         t.cancel()
 
     def changeLabel(self):
-        global count
         temp = self.label1.text()
-        print(temp)
-        count+=1
-        self.label1.setText(str(count))
-
-
-
+        temp2 = datetime.datetime.strptime(temp, "%H:%M:%S")
+        temp3 = temp2 + datetime.timedelta(seconds=1)
+        self.label1.setText(temp3.strftime("%H:%M:%S"))
 
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = MyApp()
-
     sys.exit(app.exec_())
-
