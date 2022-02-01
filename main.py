@@ -30,18 +30,18 @@ class MyApp(QWidget):
         btn1.setText("Start")
         btn1.clicked.connect(self.start)
 
-        btn2 = QPushButton(self)
-        btn2.setText("pause")
-        btn2.clicked.connect(self.pause)
-        btn2.setDisabled(True)
+        # btn2 = QPushButton(self)
+        # btn2.setText("pause")
+        # btn2.clicked.connect(self.pause)
+        # btn2.setDisabled(True)
 
         btn3 = QPushButton(self)
         btn3.setText("stop")
         btn3.clicked.connect(self.stop)
 
-        btn4 = QPushButton(self)
-        btn4.setText("Hold")
-        btn4.clicked.connect(self.Hold)
+        # btn4 = QPushButton(self)
+        # btn4.setText("Hold")
+        # btn4.clicked.connect(self.Hold)
         # btn4.setDisabled(True)
 
         btn5 = QPushButton(self)
@@ -51,9 +51,9 @@ class MyApp(QWidget):
         hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(btn1)
-        hbox.addWidget(btn2)
+        # hbox.addWidget(btn2)
         hbox.addWidget(btn3)
-        hbox.addWidget(btn4)
+        # hbox.addWidget(btn4)
         hbox.addWidget(btn5)
         hbox.addStretch(1)
 
@@ -64,6 +64,7 @@ class MyApp(QWidget):
         font1.setFamily("D2 Coding")
         font1.setBold(True)
         self.label1.setFont(font1)
+        self.label1.setStyleSheet("color: black;" "background-color: green")
 
         vbox = QVBoxLayout()
 
@@ -72,10 +73,11 @@ class MyApp(QWidget):
 
         self.setLayout(vbox)
         self.setWindowTitle("Time Counter")
-        self.setWindowFlags(Qt.WindowStaysOnTopHint)
+        # self.setWindowFlag(Qt.FramelessWindowHint)
         self.adjustSize()
         # self.resize(450, 200)
         self.center()
+        self.setStyleSheet("color: #7FFFD4;" "background-color: green")
         self.show()
 
     def center(self):
