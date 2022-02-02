@@ -39,9 +39,9 @@ class MyApp(QWidget):
         btn3.setText("stop")
         btn3.clicked.connect(self.stop)
 
-        btn4 = QPushButton(self)
-        btn4.setText("Hold")
-        btn4.clicked.connect(self.Hold)
+        # btn4 = QPushButton(self)
+        # btn4.setText("Hold")
+        # btn4.clicked.connect(self.Hold)
         # btn4.setDisabled(True)
 
         btn5 = QPushButton(self)
@@ -53,10 +53,9 @@ class MyApp(QWidget):
         hbox.addWidget(btn1)
         # hbox.addWidget(btn2)
         hbox.addWidget(btn3)
-        hbox.addWidget(btn4)
+        # hbox.addWidget(btn4)
         hbox.addWidget(btn5)
         hbox.addStretch(1)
-
 
         self.label1 = QLabel("00:00:00", self)
         self.label1.setAlignment(Qt.AlignCenter)
@@ -65,6 +64,7 @@ class MyApp(QWidget):
         font1.setFamily("D2 Coding")
         font1.setBold(True)
         self.label1.setFont(font1)
+        self.label1.setStyleSheet("color: black;" "background-color: green")
 
         vbox = QVBoxLayout()
 
@@ -73,10 +73,11 @@ class MyApp(QWidget):
 
         self.setLayout(vbox)
         self.setWindowTitle("Time Counter")
-        self.setWindowFlags(Qt.WindowStaysOnTopHint)
+        # self.setWindowFlag(Qt.FramelessWindowHint)
         self.adjustSize()
         # self.resize(450, 200)
         self.center()
+        self.setStyleSheet("color: #7FFFD4;" "background-color: green")
         self.show()
 
     def center(self):
