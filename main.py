@@ -48,6 +48,7 @@ class MyApp(QWidget):
         btn5.setText("exit")
         btn5.clicked.connect(QCoreApplication.instance().quit)
 
+
         hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(btn1)
