@@ -65,7 +65,7 @@ class MyApp(QWidget):
         font1.setFamily("D2 Coding")
         font1.setBold(True)
         self.label1.setFont(font1)
-        self.label1.setStyleSheet("color: black;" "background-color: green")
+        self.label1.setStyleSheet("color: white;" "background-color: green")
 
         vbox = QVBoxLayout()
 
