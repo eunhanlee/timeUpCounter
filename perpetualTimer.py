@@ -15,7 +15,7 @@ class perpetualTimer():
       self.thread.start()
 
    def start(self):
-      self.t=1
+      self.thread = Timer(self.t, self.handle_function)
       self.thread.start()
 
    def cancel(self):

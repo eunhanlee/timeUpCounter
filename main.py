@@ -48,7 +48,6 @@ class MyApp(QWidget):
         btn5.setText("exit")
         btn5.clicked.connect(QCoreApplication.instance().quit)
 
-
         hbox = QHBoxLayout()
         hbox.addStretch(1)
         hbox.addWidget(btn1)
@@ -66,6 +65,7 @@ class MyApp(QWidget):
         font1.setBold(True)
         self.label1.setFont(font1)
         self.label1.setStyleSheet("color: white;" "background-color: green")
+        # self.label1.setStyleSheet("color: black;" "background-color: green")
 
         vbox = QVBoxLayout()
 
